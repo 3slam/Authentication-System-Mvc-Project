@@ -1,0 +1,17 @@
+﻿@model UpdateUserInfoViewModel
+@{
+    ViewData["Title"] = "Update Your Info";
+}
+
+<form asp-action="x" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" />
+
+    <label asp-for="FullName"></label>
+    <input asp-for="FullName" />
+
+    <label asp-for="ProfileImge"></label>
+    <input asp-for="ProfileImge" type="file" />
+
+    <button type="submit">Update</button>
+</form>

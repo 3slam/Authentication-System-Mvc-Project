@@ -1,0 +1,124 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "ListUsers";
+}
+
+
+<div style="margin:40px">
+    @if (Model.Any())
+    {
+        <input   disabled style="text-align:center;display:block;margin:30px" value="All Users" />
+        <a class="btn btn-primary ml-3" style="width:auto;align-items:center" asp-action="CreateUser" asp-controller="Administration">Add New User</a>
+
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var user in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card border-0 p-3 shadow border-top border-5 rounded">
+
+                            <div class="card-header style=" align-items:center"">
+
+                                <img src="@user.ProfileImge" style="width:140px;height:140px" class="img-fluid img-thumbnail"  alt="Image" class="img-fluid" />
+                                <figcaption style="color:green"><strong>User Name : </strong>@user.UserName</figcaption>
+                               
+                            </div>
+
+                            <div class="card-body">
+                               
+                                <p class="card-title"> <strong>Full Name : </strong>@user.FullName</p>
+                                <p class="card-title"> <strong>Email : </strong>@user.Email</p>
+                            </div>
+
+                            <div class="card-footer">
+                                <a asp-controller="Administration" asp-action="DeleteUser" asp-route-UserName="@user.UserName" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+    else
+    {                  
+        <div class="card">
+            <div class="card-header">
+                No users created yet
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    
+                </h5>
+                <a class="btn btn-primary" style="width:auto"
+                   asp-controller="Administration" asp-action="CreateUser">
+                    Create User
+                </a>
+            </div>
+        </div>
+    }
+ </div>
+
+
+
+
+@* <h1>List Users</h1>
+
+@if (Model.Any())
+{
+    <a style="margin:40px" class="btn btn-primary mb-3" style="width:auto" asp-action="CreateUser" asp-controller="Administration">Add New User</a>
+
+    foreach (var item in Model)
+    {
+        <div class="card mb-3">
+
+            <div class="card-header">
+                <strong>User Full Name</strong> : @item.FullName
+            </div>
+
+            <div class="card-body">
+                <strong>UserName : </strong> @item.UserName <br />
+                <strong>Email : </strong> @item.Email <br />
+                <strong>PhoneNumber : </strong> @item.PhoneNumber <br />
+            </div>
+
+           
+
+            <div class="card-footer">
+
+                <a asp-controller="Administration" asp-action="EditUser"
+                   asp-route-userUserName="@item.UserName" class="btn btn-primary">
+                    Edit
+                </a>
+
+                <a asp-controller="Administration" asp-action="DeleteUser"
+                   asp-route-userUserName="@item.UserName" class="btn btn-danger">
+                    Delete
+                </a>
+
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Users created yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the button below to create a user
+            </h5>
+            <a class="btn btn-primary" style="width:auto"
+               asp-controller="Administration" asp-action="CreateUser">
+                Create User
+            </a>
+        </div>
+    </div>
+
+
+}
+ *@

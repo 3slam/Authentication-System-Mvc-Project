@@ -1,0 +1,71 @@
+﻿@model EditUserViewModel
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h1> Edit User </h1>
+
+<form asp-action="EditUser" asp-controller="Administration" style="margin:40px">
+
+    <div class="form-group row">
+
+        <label asp-for="UserID" class="col-sm-2 col-form-label"></label>
+        <input type="hidden" asp-for="UserID" />
+
+        <div class="col-sm-10">
+            <input asp-for="UserID" disabled class="form-control">
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group row">
+
+        <label asp-for="UserName" class="col-sm-2 col-form-label"></label>
+
+        <div class="col-sm-10">
+            <input asp-for="UserName" class="form-control">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group row">
+
+        <label asp-for="FullName" class="col-sm-2 col-form-label"></label>
+
+        <div class="col-sm-10">
+            <input asp-for="FullName" class="form-control">
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+    </div>
+    <br />
+   
+    <br />
+    <div class="form-group row">
+
+        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+
+        <div class="col-sm-10">
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+    </div>
+
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <br />
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

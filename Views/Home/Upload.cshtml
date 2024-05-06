@@ -1,0 +1,7 @@
+﻿@model ImageUploadViewModel
+    
+<form asp-action="Upload" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="ImageFile">
+    <input type="submit" asp-for="ImageFile">
+</form>
+

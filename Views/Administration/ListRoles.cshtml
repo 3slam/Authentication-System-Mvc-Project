@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<IdentityRole>
+
+@{
+    ViewBag.Title = "All Roles";
+}
+
+
+<div style="margin:40px">
+    @if (Model.Any())
+    {
+        <input   disabled style="text-align:center;display:block;margin:30px" value="All Roles" />
+        <a class="btn btn-primary ml-3" style="width:auto;align-items:center" asp-action="CreateRole" asp-controller="Administration">Add New Role</a>
+
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var role in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card border-0 p-3 shadow border-top border-5 rounded">
+
+                            <div class="card-header">
+                                Role Id : @role.Id
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">@role.Name</h5>
+                            </div>
+
+                            <div class="card-footer">
+                                <a asp-controller="Administration" asp-action="EditRole" asp-route-roleId="@role.Id" class="btn btn-primary">
+                                    Edit
+                                </a>
+                                <a asp-controller="Administration" asp-action="DeleteRole" asp-route-roleId="@role.Id" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    }
+    else
+    {                  
+        <div class="card">
+            <div class="card-header">
+                No roles created yet
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    
+                </h5>
+                <a class="btn btn-primary" style="width:auto"
+                   asp-controller="Administration" asp-action="CreateRole">
+                    Create Role
+                </a>
+            </div>
+        </div>
+    }
+ </div>
+
